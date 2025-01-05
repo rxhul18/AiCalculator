@@ -1,14 +1,27 @@
-import './App.css'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import '@mantine/core/styles.css'
+import { MantineProvider } from "@mantine/core"
 
-function App() {
+import Home from './screens/home'
+import './index.css'
 
+const paths = [
+  {
+    path: '/',
+    element:(
+      <Home />
+    )
+  }
+]
+
+const BrowerRouter = createBrowserRouter(paths);
+
+const App = () => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
+    <MantineProvider>
+      <RouterProvider router={BrowerRouter} />
+    </MantineProvider>
   )
 }
 
-export default App
+export default App;
